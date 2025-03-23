@@ -4,7 +4,10 @@ const content=document.getElementById('content')
 const btn=document.getElementById('btn')
 const detail=document.getElementById('detail')
 const search=document.getElementById('search')
+const textHeader=document.getElementById('textHeader')
 let count=8
+
+
 fetch("https://restcountries.com/v3.1/all")
 .then( response=> response.json())
 .then( melumat=>{
@@ -20,12 +23,12 @@ function show(){
     .slice(0,count)
     .forEach( item => {
         content.innerHTML += `
-             <article  class="flex flex-col w-full  bg-gray-200 dark:bg-gray-50">
-                <a rel="noopener noreferrer" href="./details.html?id=${item.ccn3}" aria-label="Te nulla oportere reprimique his dolorum">
+             <article onclick="window.location.href='./details.html?id=${item.ccn3}'" class="flex flex-col w-full  bg-gray-200 dark:bg-gray-50">
+                <a rel="noopener noreferrer"  href="./details.html?id=${item.ccn3}" aria-label="Te nulla oportere reprimique his dolorum">
                     <img alt="" class="object-cover w-full h-52 dark:bg-gray-500"
                         src="${item.flags.png}">
                 </a>
-                <div class="flex flex-col flex-1 p-6">
+                <div  class="flex flex-col flex-1 p-6 cursor-pointer">
                     <a rel="noopener noreferrer" href="#"
                         aria-label="Te nulla oportere reprimique his dolorum"></a>
                     <a rel="noopener noreferrer" href="#"
@@ -58,7 +61,7 @@ function showCardDetails(){
     const randomIndex=Math.floor(Math.random()*DATA.length)
     const selectCountry=DATA[randomIndex]
     detail.innerHTML=`
-     <a rel="noopener noreferrer" href="./details.html" class="block max-w-sm gap-3 mx-auto text-black sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 bg-gray-100">
+     <a rel="noopener noreferrer" href="./details.html?id=${selectCountry.ccn3}"  class="block max-w-sm gap-3 mx-auto text-black sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 bg-gray-100">
                 <img src="${selectCountry.flags.png}" alt="" class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 bg-gray-100">
                 <div class="p-6 space-y-2 lg:col-span-5 bg-gray-100">
                     <h3 class="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">${selectCountry.name.common}</h3>
@@ -73,7 +76,9 @@ function showCardDetails(){
 function filter(arg){
    DATA = arg == "all" ? Filter : Filter.filter((item) => item.region == arg)
    show()
-   detail.innerHTML=''
+    detail.style.display='none'
+    textHeader.style.display='none'
+    btn.style.display='none'
 }
 
 
