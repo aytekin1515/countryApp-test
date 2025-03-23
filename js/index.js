@@ -45,7 +45,8 @@ showCardDetails()
 }
 
 function scrollToCards() {
-    document.getElementById("detail").scrollIntoView({ behavior: "smooth" });
+     content.scrollIntoView({ behavior: "smooth" })
+     document.getElementById("detail").scrollIntoView({ behavior: "smooth" })
 }
 
 
@@ -96,7 +97,7 @@ document.getElementById('searchBtn').addEventListener('click',function(){
 function searchCard(){
     content.innerHTML=''
        detail.style.display="none"
-       btn.style.display='none'
+       btn.style.display='none'     
    DATA
    .filter( item=> item.name.common.toLowerCase().startsWith(search.value.toLowerCase()))
    .forEach((item)=>{ 
