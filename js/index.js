@@ -68,7 +68,7 @@ function showCardDetails(){
                     <span class="text-xs text-gray-400">Paytaxt: ${selectCountry.capital}</span>
                     <p>Yerləşdiyi qitə: ${selectCountry.continents}</p>
                     <p> ${selectCountry.name.common}-nin əhalisi: ${selectCountry.population}</p>
-                    <p>Onun qonşuları:<strong> ${selectCountry.borders && selectCountry.borders.length > 0 ? selectCountry.borders : "Ada ölkəsidir, yəni qonşusu yoxdur"}</strong></p>
+                    <p>Onun qonşuları:<strong class="px-3"> ${selectCountry.borders && selectCountry.borders.length > 0 ? selectCountry.borders : "Ada ölkəsidir, yəni qonşusu yoxdur"}</strong></p>
                 </div>
             </a>`
 }
