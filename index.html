@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/output.css">
+</head>
+
+<body>
+    <header class="p-4 dark:bg-gray-100 dark:text-gray-800">
+        <div class="container flex justify-center h-16 mx-auto">
+            <ul class="items-stretch hidden space-x-3 md:flex mr-8">
+                <li class="flex">
+                    <a onclick="filter('Africa')" rel="noopener noreferrer" href="#"
+                        class="flex items-center text-xl px-4 -mb-1 border-b-2 border-gray-300 dark:border-">Africa</a>
+                </li>
+                <li class="flex">
+                    <a onclick="filter('Europe')" rel="noopener noreferrer" href="#"
+                        class="flex items-center text-xl px-4 -mb-1 border-b-2 border-gray-300 dark:border-">Europe</a>
+                </li>
+                <li class="flex">
+                    <a onclick="filter('Oceania')" rel="noopener noreferrer" href="#"
+                        class="flex items-center text-xl px-4 -mb-1 border-b-2 border-gray-300 dark:border- dark:text-violet-600 dark:border-violet-600">Oceania</a>
+                </li>
+            </ul>
+            
+            <!-- Globe Icon (desktop only) -->
+            <a onclick="filter('all')" rel="noopener noreferrer" href="#" aria-label="Back to homepage"
+                class="hidden md:flex items-center p-2">
+                <i class="fa-solid fa-earth-americas text-4xl text-violet-600"></i>
+            </a>
+            
+            <!-- Desktop Menu (right side) -->
+            <ul class="items-stretch hidden space-x-3 md:flex ml-8">
+                <li class="flex">
+                    <a onclick="filter('Asia')" rel="noopener noreferrer" href="#"
+                        class="flex items-center text-xl px-4 -mb-1 border-b-2 border-gray-300 dark:border-">Asia</a>
+                </li>
+                <li class="flex">
+                    <a onclick="filter('Americas')" rel="noopener noreferrer" href="#"
+                        class="flex items-center text-xl px-4 -mb-1 border-b-2 border-gray-300 dark:border-">Americas</a>
+                </li>
+                <li class="flex">
+                    <a onclick="filter('Antarctic')" rel="noopener noreferrer" href="#"
+                        class="flex items-center text-xl px-4 -mb-1 border-b-2 border-gray-300 dark:border-">Antarctic</a>
+                </li>
+                
+            </ul>
+            
+            <div class="gap-x-40  flex justify-between items-center md:hidden">
+                <a onclick="filter('all')" rel="noopener noreferrer" href="#" aria-label="Back to homepage"
+                    class="flex md:hidden items-center">
+                    <i class="fa-solid fa-earth-americas text-4xl text-violet-600"></i>
+                </a>
+                <div class="flex items-center">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </div>
+                <button id="burger-button" title="Menu" type="button" class="focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    
+        <div id="menu-container" class="h-0 overflow-hidden transition-all duration-500 ease-in-out md:hidden">
+            <div class="border-t border-gray-200 mt-2"></div>
+            
+            <div class="border-b border-gray-200 py-4">
+                <a href="#" onclick="filter('Europe')"
+                    class="block text-center text-purple-500 font-medium">Europe</a>
+            </div>
+    
+            <div class="border-b border-gray-200 py-4">
+                <a href="#" onclick="filter('Asia')"
+                    class="block text-center text-gray-800 font-medium">Asia</a>
+            </div>
+    
+            <div class="border-b border-gray-200 py-4">
+                <a href="#" onclick="filter('Americas')"
+                    class="block text-center text-gray-800 font-medium">Americas</a>
+            </div>
+    
+            <div class="border-b border-gray-200 py-4">
+                <a href="#" onclick="filter('Africa')"
+                    class="block text-center text-gray-800 font-medium">Africa</a>
+            </div>
+    
+            <div class="border-b border-gray-200 py-4">
+                <a href="#" onclick="filter('Oceania')"
+                    class="block text-center text-gray-800 font-medium">Oceania</a>
+            </div>
+    
+            <div class="border-b border-gray-200 py-4">
+                <a href="#" onclick="filter('Antarctic')"
+                    class="block text-center text-gray-800 font-medium">Antarctic</a>
+            </div>
+        </div>
+        
+    </header>
+
+    <section class="py-6  dark:bg-gray-100 dark:text-gray-900 flex flex-col justify-center items-center gap-[40px] h-[65vh] text-center">
+        <div class="container mx-auto flex flex-col items-center justify-center p-4 space-y-8 md:p-10 md:px-24 xl:px-48">
+            <h2 class="inline text-3xl font-bold tracking-tight dark:text-white sm:block sm:text-5xl">Welcome to CountryApp Website</h2>
+            <p class="inline text-3xl font-bold tracking-tight text-violet-500 sm:block sm:text-4xl">You can find data of any country in this website.</p>
+            <div id="searchDiv"  class="relative">
+                <input id="search" oninput="searchCard()" class="w-full bg-gray-300 p-2 rounded-md outline-none text-black"
+                    placeholder="Search">
+                <i class="fa-solid fa-magnifying-glass absolute right-2 top-3 text-gray-600"></i>
+            </div>
+            <div class="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-8">
+                <button onclick="scrollToCards()" class="w-[170px] py-[15px] rounded-[5px] border-0 font-bold text-white bg-violet-500 uppercase text-[.9rem] hover:bg-[#6f4cd6]">have a look</button>
+                <button id="searchBtn" class="w-[170px] py-[15px] rounded-[5px] border-0 font-bold text-white bg-[#000] uppercase text-[.9rem] hover:bg-[#191919]">search</button>
+            </div>
+        </div>
+    </section>
+    <section class="bg-white text-gray-100 mt-10 container-lg">
+        <div id="detail" class="container max-w-7xl p-6 mx-auto space-y-6 sm:space-y-12">
+        </div>
+    </section>
+    <main>
+        <section class="py-6 sm:py-12 dark:bg-gray-100 dark:text-gray-800">
+            <div class="container p-6 mx-auto space-y-8">
+                <div id="content" class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+                </div>
+            </div>
+        </section>
+        <div class="flex items-center justify-center">
+            <button id="btn" onclick="showMore()" type="button"
+                class="px-8 py-3 bg-purple-500 text-white rounded-md text-xl">Show More</button>
+        </div>
+    </main>
+
+
+
+
+
+    <footer class="p-6 dark:bg-gray-100 dark:text-gray-800">
+        <div class="container grid grid-cols-2 mx-auto gap-x-3 gap-y-8 sm:grid-cols-3 md:grid-cols-4">
+            <div class="flex flex-col space-y-4">
+                <h2 class="font-medium">Getting started</h2>
+                <div class="flex flex-col space-y-2 text-sm dark:text-gray-600">
+                    <a rel="noopener noreferrer" href="#">Installation</a>
+                    <a rel="noopener noreferrer" href="#">Release Notes</a>
+                    <a rel="noopener noreferrer" href="#">Upgrade Guide</a>
+                    <a rel="noopener noreferrer" href="#">Using with Preprocessors</a>
+                    <a rel="noopener noreferrer" href="#">Optimizing for Production</a>
+                    <a rel="noopener noreferrer" href="#">Browser Support</a>
+                    <a rel="noopener noreferrer" href="#">IntelliSense</a>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-4">
+                <h2 class="font-medium">Core Concepts</h2>
+                <div class="flex flex-col space-y-2 text-sm dark:text-gray-600">
+                    <a rel="noopener noreferrer" href="#">Utility-First</a>
+                    <a rel="noopener noreferrer" href="#">Responsive Design</a>
+                    <a rel="noopener noreferrer" href="#">Hover, Focus, &amp; Other States</a>
+                    <a rel="noopener noreferrer" href="#">Dark Mode</a>
+                    <a rel="noopener noreferrer" href="#">Adding Base Styles</a>
+                    <a rel="noopener noreferrer" href="#">Extracting Components</a>
+                    <a rel="noopener noreferrer" href="#">Adding New Utilities</a>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-4">
+                <h2 class="font-medium">Customization</h2>
+                <div class="flex flex-col space-y-2 text-sm dark:text-gray-600">
+                    <a rel="noopener noreferrer" href="#">Configuration</a>
+                    <a rel="noopener noreferrer" href="#">Theme Configuration</a>
+                    <a rel="noopener noreferrer" href="#">Breakpoints</a>
+                    <a rel="noopener noreferrer" href="#">Customizing Colors</a>
+                    <a rel="noopener noreferrer" href="#">Customizing Spacing</a>
+                    <a rel="noopener noreferrer" href="#">Configuring Variants</a>
+                    <a rel="noopener noreferrer" href="#">Plugins</a>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-4">
+                <h2 class="font-medium">Community</h2>
+                <div class="flex flex-col space-y-2 text-sm dark:text-gray-600">
+                    <a rel="noopener noreferrer" href="#">GitHub</a>
+                    <a rel="noopener noreferrer" href="#">Discord</a>
+                    <a rel="noopener noreferrer" href="#">Twitter</a>
+                    <a rel="noopener noreferrer" href="#">YouTube</a>
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center justify-center px-6 pt-12 text-sm">
+            <span class="dark:text-gray-600">© Copyright 1986. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
