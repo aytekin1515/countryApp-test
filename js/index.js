@@ -20,7 +20,7 @@ function show(){
     .slice(0,count)
     .forEach( item => {
         content.innerHTML += `
-             <article  class="flex flex-col bg-gray-200 dark:bg-gray-50">
+             <article  class="flex flex-col w-full  bg-gray-200 dark:bg-gray-50">
                 <a rel="noopener noreferrer" href="./details.html?id=${item.ccn3}" aria-label="Te nulla oportere reprimique his dolorum">
                     <img alt="" class="object-cover w-full h-52 dark:bg-gray-500"
                         src="${item.flags.png}">
