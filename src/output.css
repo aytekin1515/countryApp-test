@@ -1043,11 +1043,20 @@
   .gap-x-30 {
     column-gap: calc(var(--spacing) * 30);
   }
+  .gap-x-32 {
+    column-gap: calc(var(--spacing) * 32);
+  }
   .gap-x-36 {
     column-gap: calc(var(--spacing) * 36);
   }
+  .gap-x-38 {
+    column-gap: calc(var(--spacing) * 38);
+  }
   .gap-x-40 {
     column-gap: calc(var(--spacing) * 40);
+  }
+  .gap-x-3832 {
+    column-gap: calc(var(--spacing) * 3832);
   }
   .space-x-3 {
     :where(& > :not(:last-child)) {
